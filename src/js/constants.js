@@ -13,7 +13,7 @@ export const ANSWERS = {
   // самое длинное слово
   MAX_LENGTH_WORD: document.querySelector('#answer4'),
   // переворот слов
-  REVERSE_WORD: document.querySelector('#answer5'),
+  REVERSE_WORDS: document.querySelector('#answer5'),
   // количество предложений
   SENTENCES_COUNT: document.querySelector('#answer6'),
   // количество уникальных слов

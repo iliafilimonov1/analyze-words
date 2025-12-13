@@ -32,7 +32,40 @@ export const maxLengthWord = (words) => {
   return sortedWords?.at(0)
 }
 
-// Домашка от 07.12.2025 здесь
+/**
+ * Функция для переворота слов в предложении
+ * @param {string[]} words - Данные пользователя
+ * @returns {string} - Перевернутое предложение
+ */
+export const reverseWords = (words) => {
+  const reverseSentence = words?.reverse()?.map((word) => word?.split('')?.reverse()?.join(''))
+  return reverseSentence?.join(' ')
+}
+
+/**
+ * Функция для подсчета количества предложений в тексте
+ * @param {string[]} words - Данные пользователя
+ * @returns {number} - Количество предложений в тексте
+ */
+export const sentencesCount = (words) => {
+  return words?.filter((word) => word?.endsWith('.'))?.length
+}
+
+/**
+ * Функция для подсчета количества уникальных слов в тексте
+ * @param {string[]} words - Данные пользователя
+ * @returns {number} - Количество уникальных слов в тексте
+ */
+export const countUniqueWords = (words) => {
+  return words?.filter((word, index, self) => self?.indexOf(word) === index)?.length
+}
+
+/**
+ * Функция для сортировки слов в алфавитном порядке
+ * @param {string[]} words - Данные пользователя
+ * @returns {string[]} - Сортированные слова в алфавитном порядке
+ */
+export const sortInAlphabeticalOrder = (words) => words?.sort()
 
 
 /**
@@ -45,4 +78,8 @@ export function analyzeText(userData) {
   ANSWERS.WORDS_COUNT.textContent = wordsCount(userData)
   ANSWERS.NUMBER_OF_CHARACTERS.textContent = numberOfCharacters(userData)
   ANSWERS.MAX_LENGTH_WORD.textContent = maxLengthWord(userData)
+  ANSWERS.REVERSE_WORDS.textContent = reverseWords(userData)
+  ANSWERS.SENTENCES_COUNT.textContent = sentencesCount(userData)
+  ANSWERS.UNIQUE_WORD_COUNT.textContent = countUniqueWords(userData)
+  ANSWERS.WORDS_IN_ALPHABETICAL_ORDER.textContent = sortInAlphabeticalOrder(userData)
 }
